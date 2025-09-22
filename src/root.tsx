@@ -1,4 +1,4 @@
-import './index.css' // css import is automatically injected in exported server components
+import './index.css'
 import viteLogo from '/vite.svg'
 import { getServerCounter, updateServerCounter } from './action.tsx'
 import reactLogo from './assets/react.svg'

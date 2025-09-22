@@ -1,6 +1,7 @@
 export interface PersonalInfo {
   name: string;
   title: string;
+  tagline: string;
   address: string;
   phone: string;
   email: string;
@@ -26,18 +27,27 @@ export interface Education {
   degree: string;
   institution: string;
   period: string;
+  image?: string;
 }
 
 export interface Certification {
   name: string;
   issuer: string;
   date: string;
+  image?: string;
+  credentialId?: string;
+  credentialUrl?: string;
 }
 
 export interface Project {
   title: string;
   technologies: string;
   description: string;
+  image?: string;
+  liveUrl?: string;
+  githubUrl?: string;
+  role?: string;
+  impact?: string;
 }
 
 export interface ResumeData {
@@ -54,6 +64,7 @@ export const resumeData: ResumeData = {
   personalInfo: {
     name: "K.L. Aruna Shantha",
     title: "IT Executive & Software Engineer",
+    tagline: "Building enterprise solutions that drive digital transformation and operational excellence",
     address: "Ruwanwella, Sri Lanka",
     phone: "+94 77 646 1602",
     email: "Arunalk722@hotmail.com",
@@ -184,56 +195,118 @@ export const resumeData: ResumeData = {
     {
       degree: "Higher National Diploma in Computing & Software Engineering",
       institution: "Cardiff Metropolitan University, ICBT Campus",
-      period: "Completed Aug 2024"
+      period: "Completed Aug 2024",
+      image: "/aruna-portfolio/src/assets/certificates/CMU/CMU-1.jpg",
     }
   ],
   certifications: [
     {
       name: "Cisco Certified Network Professional (CCNP)",
-      issuer: "Cisco Systems",
-      date: "Apr 2021"
+      issuer: "Active Tech Networks",
+      date: "Apr 2021",
+    //  image: "/aruna-portfolio/src/assets/certificates/AWS.png",
+      credentialId: "CCNP-2021-001"
     },
     {
       name: "Cisco Certified Network Associate (CCNA) & Cisco Certified Entry Networking Technician (CCENT)",
-      issuer: "Cisco Systems",
-      date: "Apr 2019"
+      issuer: "Active Tech Networks",
+      date: "Apr 2019",
+      image: "/aruna-portfolio/src/assets/certificates/CCNA/CCNA.jpg",
+      credentialId: "CCNA-2019-001"
     },
     {
       name: "Java Application Development Certification",
       issuer: "Institute of Information Technology Sri Lanka (IITS)",
-      date: "Apr 2022"
+      date: "Apr 2022",
+      image: "/aruna-portfolio/src/assets/certificates/IITS.jpg",
+      credentialId: "JAVA-2022-001"
     },
     {
       name: "Cybersecurity Essentials Certification",
       issuer: "Cisco Networking Academy",
-      date: "2020"
+      date: "2020",
+      image: "/aruna-portfolio/src/assets/certificates/Cybersecurity/Cybersecurity.jpg",
+      credentialId: "CYBER-2021-001"
+    },
+    {
+      name: "NDG LINUX ESSENTIALS",
+      issuer: "NDG",
+      date: "2021",
+      image: "/aruna-portfolio/src/assets/certificates/NDG/NDG.jpg",
+      credentialId: "NDG-2021-001"
     }
+    ,
+    {
+      name: "Get Connected",
+      issuer: "Cisco Networking Academy",
+      date: "2021",
+      image: "/aruna-portfolio/src/assets/certificates/GetConnected/GetConnected.jpg",
+      credentialId: "GetConnected-2021-001"
+    }
+    ,
+    {
+      name: "Networking Essentials",
+      issuer: "Cisco Networking Academy",
+      date: "2021",
+      image: "/aruna-portfolio/src/assets/certificates/NetworkingEssen/NetworkingEssen.jpg",
+      credentialId: "GetConnected-2021-001"
+    },
+    {
+      name: "Programming Essentials in Python",
+      issuer: "OpenEDG Python Institute",
+      date: "2021",
+      image: "/aruna-portfolio/src/assets/certificates/PCAP/PCAP.jpg",
+      credentialId: "PCAP-2021-001"
+    },
+    {
+      name: "AWS Summit",
+      issuer: "AWS India",
+      date: "2025",
+      image: "/aruna-portfolio/src/assets/certificates/AWS/AWS.png",
+      credentialId: "AWS-2025-001"
+    },  
   ],
   projects: [
     {
       title: "Enterprise Resource Planning (ERP) System Implementation",
       technologies: "Windows Server 2019, SQL Server 2019, .NET Framework",
-      description: "Led comprehensive ERP deployment across all business units, integrating finance, procurement, inventory, and production modules. Reduced manual data entry by 85% and improved cross-departmental reporting accuracy by 90%. Implemented custom workflows that streamlined approval processes and reduced operational cycle time by 40%."
+      description: "Led comprehensive ERP deployment across all business units, integrating finance, procurement, inventory, and production modules. Reduced manual data entry by 85% and improved cross-departmental reporting accuracy by 90%. Implemented custom workflows that streamlined approval processes and reduced operational cycle time by 40%.",
+      role: "Lead Developer & Project Manager",
+      impact: "85% reduction in manual data entry, 90% improvement in reporting accuracy",
+      image: "/aruna-portfolio/src/assets/works/ERP.png"
     },
     {
       title: "Poultry Management & Analytics System",
-      technologies: "Python (Flask), React.js, MSSQL,LXC, REST API",
-      description: "Developed a predictive analytics platform for egg production forecasting and chick mortality prediction in poultry operations. Designed algorithms that improved forecasting accuracy by 95% and enabled proactive resource planning. Integrated real-time monitoring dashboards that provided actionable insights to management, resulting in a 35% increase in operational efficiency. Created a feature order system using predictions to balance actual egg stock"
+      technologies: "Python (Flask), React.js, MSSQL, LXC, REST API",
+      description: "Developed a predictive analytics platform for egg production forecasting and chick mortality prediction in poultry operations. Designed algorithms that improved forecasting accuracy by 95% and enabled proactive resource planning. Integrated real-time monitoring dashboards that provided actionable insights to management, resulting in a 35% increase in operational efficiency. Created a feature order system using predictions to balance actual egg stock",
+      role: "Full-Stack Developer & Data Analyst",
+      impact: "95% forecasting accuracy improvement, 35% operational efficiency increase",
+      image: "/aruna-portfolio/src/assets/works/PMS.png"
     },
     {
       title: "Eco Crop and Maize Moisture Management System",
       technologies: ".NET Core (C#), MSSQL, REST API",
-      description: "Created comprehensive agricultural management solution for crop monitoring and moisture analysis. Developed data collection and analysis tools that improved crop yield prediction accuracy by 70%. Implemented real-time monitoring dashboards for field operations management."
+      description: "Created comprehensive agricultural management solution for crop monitoring and moisture analysis. Developed data collection and analysis tools that improved crop yield prediction accuracy by 70%. Implemented real-time monitoring dashboards for field operations management.",
+      role: "Backend Developer & System Architect",
+      impact: "70% improvement in crop yield prediction accuracy",
+      image: "/aruna-portfolio/src/assets/works/Maize.png"
     },
     {
       title: "Enterprise Project & Accounting Management Platform",
       technologies: "Flutter, PHP, MySQL, REST API",
-      description: "Designed and implemented a cross-platform solution for project tracking and financial management with role-based access control for Roky Holdings (Pvt) Ltd. Enabled real-time collaboration between field teams and management through web-based interfaces. Improved project tracking efficiency by 65% and reduced accounting reconciliation time by 80% through automated workflows. Published the mobile app to the Google Play Console, delivering feature improvements based on user feedback. This project was developed as the final requirement for my B.Sc. (Hons) Software Engineering top-up degree"
+      description: "Designed and implemented a cross-platform solution for project tracking and financial management with role-based access control for Roky Holdings (Pvt) Ltd. Enabled real-time collaboration between field teams and management through web-based interfaces. Improved project tracking efficiency by 65% and reduced accounting reconciliation time by 80% through automated workflows. Published the mobile app to the Google Play Console, delivering feature improvements based on user feedback. This project was developed as the final requirement for my B.Sc. (Hons) Software Engineering top-up degree",
+      role: "Full-Stack Developer & Mobile App Developer",
+      impact: "65% project tracking efficiency improvement, 80% reduction in reconciliation time",
+      image: "/aruna-portfolio/src/assets/works/dashboard.png",
+      githubUrl: "https://github.com/Arunalk722/ICBTRokyHoldingAccountingAppFrontEnd.git"
     },
     {
       title: "Integrated Attendance & Fingerprint Management System",
-      technologies: "PHP, MSSQL, Biometric SDK,LXC, REST API",
-      description: "Developed an automated attendance tracking system with integrated fingerprint scanning for HR operations, eliminating manual attendance recording and reducing HR administrative workload by 90%. Built a PHP-based web application to collect fingerprint data from multiple remote locations into a centralized database and seamlessly pushed the consolidated data into the HRIS system. Implemented best-in-class memory management and an eye-catching, intuitive dashboard to efficiently administrate all operations within the system"
+      technologies: "PHP, MSSQL, Biometric SDK, LXC, REST API",
+      description: "Developed an automated attendance tracking system with integrated fingerprint scanning for HR operations, eliminating manual attendance recording and reducing HR administrative workload by 90%. Built a PHP-based web application to collect fingerprint data from multiple remote locations into a centralized database and seamlessly pushed the consolidated data into the HRIS system. Implemented best-in-class memory management and an eye-catching, intuitive dashboard to efficiently administrate all operations within the system",
+      role: "Backend Developer & System Integrator",
+      impact: "90% reduction in HR administrative workload",
+      image: "/aruna-portfolio/src/assets/works/Fingerprint software.png"
     }
   ]
 };
