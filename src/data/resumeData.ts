@@ -427,7 +427,7 @@ Colleagues describe me as collaborative, accountable, and calm under pressure. I
     {
       category: 'Frontend',
       items: [
-        { name: 'Flutter (UI)', level: 'Advanced' }
+        { name: 'Flutter (UI)', level: 'Advanced' },
         { name: 'React', level: 'Intermediate' },
         { name: 'TypeScript', level: 'Intermediate' },
         { name: 'HTML5 & CSS3', level: 'Advanced' },
