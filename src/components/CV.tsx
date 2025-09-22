@@ -13,7 +13,7 @@ const CV: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time for better UX
+
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
@@ -95,16 +95,16 @@ const CV: React.FC = () => {
                 className="contact-item"
               >
                 <FaGithub className="contact-icon" />
-                <span>{resumeData.personalInfo.github}</span>
+                <span>GitHub</span>
               </a>
               <a 
-                href={`https://${resumeData.personalInfo.linkedin}`} 
+                href={resumeData.personalInfo.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="contact-item"
               >
                 <FaLinkedin className="contact-icon" />
-                <span>{resumeData.personalInfo.linkedin}</span>
+                <span>LinkedIn</span>
               </a>
             </div>
           </div>
@@ -267,7 +267,7 @@ const CV: React.FC = () => {
         </section>
       </div>
       
-      {/* Image Modals */}
+  
       {selectedProjectImage && (
         <div className="image-modal" onClick={() => setSelectedProjectImage(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
