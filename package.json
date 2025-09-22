@@ -2,7 +2,7 @@
   "name": "Aruna-Shantha-cv-portfolio",
   "version": "1.0.0",
   "description": "Aruna Shantha portfolio page",
-  "homepage": "https://Arunalk722.github.io/aruna-portfolio/",  
+  "homepage": "https://Arunalk722.github.io/aruna-portfolio/",
   "private": true,
   "license": "MIT",
   "type": "module",
@@ -26,6 +26,7 @@
     "@vitejs/plugin-rsc": "latest",
     "gh-pages": "^6.3.0",
     "rsc-html-stream": "^0.0.7",
-    "vite": "^7.1.4"
+    "vite": "^7.1.4",
+    "vite-plugin-imagemin": "^0.6.1"
   }
 }

@@ -73,7 +73,13 @@ export const resumeData: ResumeData = {
     age: "27 years old",
     birthDate: "July 22, 1998"
   },
-  professionalSummary: `Results-driven IT Executive and Software Engineer with over 5 years of progressive experience in enterprise IT operations, infrastructure management, and full-stack software development. Demonstrated expertise in virtualization technologies (Proxmox, LXC, VM), Linux system administration, and custom software development to solve complex business challenges. Proven track record of leading cross-functional teams to deliver mission-critical projects with measurable ROI. Specialized in enterprise infrastructure management, ERP systems, and developing data-driven applications using modern frameworks. Passionate about leveraging technology to optimize operations and create sustainable competitive advantages.`,
+  professionalSummary: `Results-focused IT Executive & Software Engineer delivering reliable infrastructure and high-impact software.
+
+- Drove a Proxmox-based modernization and security uplift to 99.9% uptime while cutting downtime 90%.
+- Built predictive analytics and ERP integrations that reduced manual entry 85% and sped reporting 70%.
+- Shipped a project/accounting platform for 200+ users, accelerating financial reconciliations by 80%.
+
+Want the same results? Download CV or contact me.`,
   skills: [
     {
       category: "Virtualization & Containerization",
