@@ -427,10 +427,11 @@ Colleagues describe me as collaborative, accountable, and calm under pressure. I
     {
       category: 'Frontend',
       items: [
-        { name: 'React', level: 'Advanced' },
+        { name: 'Flutter (UI)', level: 'Advanced' }
+        { name: 'React', level: 'Intermediate' },
         { name: 'TypeScript', level: 'Intermediate' },
         { name: 'HTML5 & CSS3', level: 'Advanced' },
-        { name: 'Flutter (UI)', level: 'Intermediate' }
+        
       ]
     },
     {
@@ -438,7 +439,7 @@ Colleagues describe me as collaborative, accountable, and calm under pressure. I
       items: [
         { name: '.NET Core (C#)', level: 'Advanced' },
         { name: 'Python (Flask)', level: 'Intermediate' },
-        { name: 'PHP', level: 'Intermediate' },
+        { name: 'PHP', level: 'Advanced' },
         { name: 'REST API Design', level: 'Advanced' }
       ]
     },
