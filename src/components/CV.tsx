@@ -91,17 +91,12 @@ const CV: React.FC = () => {
             <h2 className="title">{resumeData.personalInfo.title}</h2>
             <p className="tagline">{resumeData.personalInfo.tagline}</p>
             <div className="hero-intro">
-              <h3 className="hero-headline">Engineering reliable systems that deliver measurable outcomes</h3>
-              <p className="hero-sub">I build infrastructure and software that improve uptime, automate workflows, and turn data into decisions. Seeking full‑stack, infrastructure/DevOps, and data‑driven product roles.</p>
-              <ul className="hero-strengths">
-                <li>99.9% uptime via Proxmox modernization and security hardening</li>
-                <li>ERP integrations cutting manual entry 85% and speeding reports 70%</li>
-                <li>Predictive analytics improving planning accuracy to 95%</li>
-              </ul>
+              <h3 className="hero-headline">IT Executive & Software Engineer</h3>
+              <p className="hero-sub">I design resilient infrastructure and build data‑driven software that improves uptime, automates workflows, and turns data into decisions.</p>
               <div className="hero-cta">
-                <a href={`mailto:${resumeData.personalInfo.email}`} className="btn btn-primary" aria-label="Contact Aruna via email">Contact</a>
+                <a href="#projects" className="btn btn-primary" aria-label="Jump to projects section">View My Work</a>
                 <button type="button" onClick={generatePDF} className="btn btn-secondary" aria-label="Generate and download CV as PDF">Download CV</button>
-                <a href="#projects" className="btn btn-ghost" aria-label="Jump to projects section">View My Work</a>
+                <a href={`mailto:${resumeData.personalInfo.email}`} className="btn btn-ghost" aria-label="Contact via email">Contact</a>
               </div>
             </div>
             
@@ -140,12 +135,39 @@ const CV: React.FC = () => {
           </div>
         </header>
 
-        <section className="section">
-          <h2 className="section-title">Professional Summary</h2>
+        <section className="section" id="about" aria-labelledby="about-title">
+          <h2 className="section-title" id="about-title">About</h2>
           <p className="summary-text">{resumeData.professionalSummary}</p>
+          {resumeData.aboutMe && (
+            <p className="summary-text">{resumeData.aboutMe}</p>
+          )}
         </section>
 
         
+        {/* Removed separate About Me block to keep content consolidated */}
+
+        <section className="section" aria-labelledby="skills-matrix-title">
+          <h2 className="section-title" id="skills-matrix-title">Skills</h2>
+          {resumeData.skillMatrix && resumeData.skillMatrix.length > 0 ? (
+            <div className="skills-grid">
+              {resumeData.skillMatrix.map((cat, idx) => (
+                <div className="skill-category" key={idx}>
+                  <h3 className="skill-category-title">{cat.category}</h3>
+                  <ul className="skill-items">
+                    {cat.items.map((si, i) => (
+                      <li className="skill-item" key={i}>
+                        <span style={{flex:1}}>{si.name}</span>
+                        <span className={`badge badge-${si.level.toLowerCase()}`}>{si.level}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="summary-text">Skills coming soon.</p>
+          )}
+        </section>
 
         <section className="section">
           <h2 className="section-title">Technical Skills</h2>
@@ -337,36 +359,22 @@ const CV: React.FC = () => {
           </div>
         </section>
 
-        <section className="section">
-          <h2 className="section-title">Case Study: ERP System Implementation</h2>
-          <div className="projects-list">
-            <div className="project-item">
-              <div className="project-header">
-                <h3 className="project-title">ERP System Implementation</h3>
-              </div>
-              <p className="project-description"><strong>Problem:</strong> Clients needed a unified ERP to eliminate siloed inventory, payments, invoicing, and reporting, enabling accurate, timely decisions.</p>
-              <p className="project-description"><strong>Role:</strong> Full stack developer (end-to-end ownership: design, backend, UI, deployment).</p>
-              <p className="project-description"><strong>Constraints:</strong> Inventory management, payment handling, invoicing, consolidated reporting; strict role-based permissions; minimal downtime; strong OOP and maintainability.</p>
-              <p className="project-description"><strong>Approach:</strong> Domain-driven modules (Items, Purchases, Sales, Payments, Invoicing, Reporting); layered architecture (UI → Services → Repositories); RBAC; transactional integrity; report-ready schemas; iterative releases.</p>
-              <p className="project-description"><strong>Architecture diagram note:</strong> UI (web) → API/Service layer (C#) → RBAC/Auth → Modules (Items, Purchase, Sales, Payments, Invoices, Reports) → MSSQL; background jobs for reconciliations and daily summaries.</p>
-              <p className="project-description"><strong>Tech stack:</strong> C# (.NET), MSSQL Server, REST, OOP, RBAC.</p>
-              <p className="project-description"><strong>Outcome:</strong> 85% reduction in manual data entry and 90% improvement in reporting accuracy; standardized processes across inventory, payments, and invoicing.</p>
-              <p className="project-description"><strong>Lessons:</strong> Design around domains; enforce RBAC early; favor layered/OOP patterns; model data for reporting from day one; short user feedback loops accelerate adoption.</p>
-            </div>
-          </div>
-        </section>
-
         <section className="section contact-section" aria-labelledby="contact-title">
-          <h2 className="section-title" id="contact-title">Get in touch</h2>
+          <h2 className="section-title" id="contact">Get in touch</h2>
           <p className="summary-text" style={{textAlign:'center'}}>
-            Interested in building reliable infrastructure or data‑driven products? Let’s talk.
+            I’m open to new opportunities, collaborations, and interesting problems. If you’re hiring or exploring a project, I’d love to connect.
+          </p>
+          <p className="summary-text" style={{textAlign:'center'}}>
+            Email: <a href={`mailto:${resumeData.personalInfo.email}`}>{resumeData.personalInfo.email}</a> · LinkedIn: <a href={resumeData.personalInfo.linkedin} target="_blank" rel="noopener noreferrer">View profile</a>
           </p>
           <div className="hero-cta" style={{justifyContent:'center'}}>
-            <a href={`mailto:${resumeData.personalInfo.email}`} className="btn btn-primary" aria-label="Hire Aruna via email">Hire me</a>
+            <a href={`mailto:${resumeData.personalInfo.email}`} className="btn btn-primary" aria-label="Hire Aruna via email">Contact Me</a>
             <button type="button" onClick={generatePDF} className="btn btn-secondary" aria-label="Generate and download CV as PDF">Download CV</button>
-            <a href={`https://${resumeData.personalInfo.github}`} target="_blank" rel="noopener noreferrer" className="btn btn-ghost" aria-label="View GitHub profile">GitHub</a>
             <a href={resumeData.personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="btn btn-ghost" aria-label="View LinkedIn profile">LinkedIn</a>
           </div>
+          <p className="summary-text" style={{textAlign:'center', marginTop: 8}}>
+            Recruiters: happy to share more details, timelines, and references on request.
+          </p>
         </section>
       </div>
       

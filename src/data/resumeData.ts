@@ -50,6 +50,30 @@ export interface Project {
   impact?: string;
 }
 
+export type ProficiencyLevel = 'Beginner' | 'Intermediate' | 'Advanced';
+
+export interface SkillItemWithLevel {
+  name: string;
+  level: ProficiencyLevel;
+}
+
+export interface SkillCategoryWithLevel {
+  category: string;
+  items: SkillItemWithLevel[];
+}
+
+export interface CaseStudy {
+  name: string;
+  summary: string;
+  role: string;
+  responsibilities: string[];
+  problem: string;
+  approach: string;
+  technologies: string[];
+  results?: string[];
+  screenshots?: string[];
+}
+
 export interface ResumeData {
   personalInfo: PersonalInfo;
   professionalSummary: string;
@@ -58,6 +82,9 @@ export interface ResumeData {
   education: Education[];
   certifications: Certification[];
   projects: Project[];
+  aboutMe?: string;
+  caseStudies?: CaseStudy[];
+  skillMatrix?: SkillCategoryWithLevel[];
 }
 
 export const resumeData: ResumeData = {
@@ -80,6 +107,11 @@ export const resumeData: ResumeData = {
 - Shipped a project/accounting platform for 200+ users, accelerating financial reconciliations by 80%.
 
 Want the same results? Download CV or contact me.`,
+  aboutMe: `I’m an IT Executive and Software Engineer with a strong track record in building reliable infrastructure and delivering data‑driven software that moves the needle. Over the past several years, I’ve led modernization efforts (virtualization, security, uptime) while developing full‑stack solutions that automate workflows, integrate with ERP systems, and surface insights through analytics and dashboards. I’m driven by making complex systems simple, measurable, and maintainable—prioritizing clarity, performance, and user impact.
+
+My strengths include designing resilient architectures (Proxmox, Linux, containerization), crafting scalable APIs and frontends, and aligning technical decisions with business outcomes. I excel in projects that blend infrastructure and product—predictive analytics platforms, operational dashboards, and enterprise integrations where uptime, data quality, and usability matter. I’m comfortable leading cross‑functional initiatives, translating requirements into roadmaps, and shipping iteratively with a focus on quality and results.
+
+Colleagues describe me as collaborative, accountable, and calm under pressure. I value transparent communication, thoughtful documentation, and continuous improvement—because great systems aren’t just built; they’re operated, measured, and refined.`,
   skills: [
     {
       category: "Virtualization & Containerization",
@@ -313,6 +345,128 @@ Want the same results? Download CV or contact me.`,
       role: "Backend Developer & System Integrator",
       impact: "90% reduction in HR administrative workload",
       image: "/aruna-portfolio/works/Fingerprint software.png"
+    }
+  ],
+  caseStudies: [
+    {
+      name: "ERP System Implementation",
+      summary: "Enterprise-wide ERP rollout integrating finance, inventory, and production to standardize operations and reporting.",
+      role: "Lead Developer & Project Manager",
+      responsibilities: [
+        "Defined architecture and data model across modules",
+        "Led phased rollout, training, and change management",
+        "Implemented RBAC, audit logs, and reporting views"
+      ],
+      problem: "Siloed processes and inconsistent data across departments increased manual work and delayed decision-making.",
+      approach: "Designed modular architecture (Finance, Inventory, Production) with REST services, RBAC, and report-ready schemas. Executed iterative releases with stakeholder demos and playbooks.",
+      technologies: [".NET (C#)", "MSSQL", "REST", "RBAC", "Windows Server"],
+      results: [
+        "85% reduction in manual data entry",
+        "90% improvement in reporting accuracy",
+        "Standardized workflows across teams"
+      ],
+      screenshots: ["/aruna-portfolio/works/ERP.png"]
+    },
+    {
+      name: "Poultry Management & Analytics Platform",
+      summary: "Data platform for forecasting egg production and chick mortality with operational dashboards.",
+      role: "Full‑Stack Developer & Data Analyst",
+      responsibilities: [
+        "Built ingestion pipelines and analytics services",
+        "Developed forecasting models and alerts",
+        "Delivered dashboard UI and stakeholder training"
+      ],
+      problem: "Limited visibility into production forecasts led to reactive planning and inventory imbalance.",
+      approach: "Implemented feature engineering and prediction services exposed via REST; designed dashboards emphasizing variance and trend analysis.",
+      technologies: ["Python (Flask)", "React", "MSSQL", "LXC", "REST"],
+      results: [
+        "95% improvement in forecasting accuracy",
+        "35% gain in operational efficiency",
+        "Balanced stock via prediction-driven ordering"
+      ],
+      screenshots: ["/aruna-portfolio/works/PMS.png"]
+    },
+    {
+      name: "Eco Crop & Maize Moisture System",
+      summary: "Field data collection and moisture analysis to improve yield planning and quality assurance.",
+      role: "Backend Developer & System Architect",
+      responsibilities: [
+        "Designed API and relational schema",
+        "Implemented data validation and reporting",
+        "Optimized queries and indexing for scale"
+      ],
+      problem: "Inaccurate and delayed moisture readings impacted quality and downstream planning.",
+      approach: "Created mobile-friendly data capture, server-side validation, and analytics views with thresholds and segment-based reporting.",
+      technologies: [".NET Core", "MSSQL", "REST"],
+      results: [
+        "70% improvement in crop yield prediction accuracy",
+        "Faster QA cycles and more reliable planning"
+      ],
+      screenshots: ["/aruna-portfolio/works/Maize.png"]
+    },
+    {
+      name: "Enterprise Project & Accounting Platform",
+      summary: "Cross-platform project tracking and accounting with role-based access and real-time collaboration.",
+      role: "Full‑Stack Developer & Mobile App Developer",
+      responsibilities: [
+        "Implemented modules for projects, tasks, and finance",
+        "Integrated authentication and role-based permissions",
+        "Shipped dashboards and release automation"
+      ],
+      problem: "Fragmented tools and manual reconciliation slowed financial visibility and project delivery.",
+      approach: "Developed Flutter frontend and PHP backend APIs; added scheduled jobs for sync and consolidated financial views.",
+      technologies: ["Flutter", "PHP", "MySQL", "REST"],
+      results: [
+        "65% improvement in project tracking efficiency",
+        "80% reduction in reconciliation time"
+      ],
+      screenshots: ["/aruna-portfolio/works/dashboard.png"]
+    }
+  ],
+  skillMatrix: [
+    {
+      category: 'Frontend',
+      items: [
+        { name: 'React', level: 'Advanced' },
+        { name: 'TypeScript', level: 'Intermediate' },
+        { name: 'HTML5 & CSS3', level: 'Advanced' },
+        { name: 'Flutter (UI)', level: 'Intermediate' }
+      ]
+    },
+    {
+      category: 'Backend',
+      items: [
+        { name: '.NET Core (C#)', level: 'Advanced' },
+        { name: 'Python (Flask)', level: 'Intermediate' },
+        { name: 'PHP', level: 'Intermediate' },
+        { name: 'REST API Design', level: 'Advanced' }
+      ]
+    },
+    {
+      category: 'Database',
+      items: [
+        { name: 'Microsoft SQL Server', level: 'Advanced' },
+        { name: 'MySQL', level: 'Advanced' },
+        { name: 'Data Modeling & Reporting', level: 'Advanced' }
+      ]
+    },
+    {
+      category: 'Tools',
+      items: [
+        { name: 'Proxmox VE / LXC', level: 'Advanced' },
+        { name: 'Linux Administration', level: 'Advanced' },
+        { name: 'Azure (Cloud)', level: 'Intermediate' },
+        { name: 'Git & CI/CD', level: 'Intermediate' }
+      ]
+    },
+    {
+      category: 'Others',
+      items: [
+        { name: 'ERP Implementation', level: 'Advanced' },
+        { name: 'Networking & Security (pfSense)', level: 'Advanced' },
+        { name: 'Agile Delivery', level: 'Intermediate' },
+        { name: 'Stakeholder Management', level: 'Advanced' }
+      ]
     }
   ]
 };
