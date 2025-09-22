@@ -52,6 +52,7 @@ const CV: React.FC = () => {
           className="pdf-button" 
           onClick={generatePDF}
           aria-label="Download CV as PDF"
+          title="Generate and download your CV as a PDF document"
         >
           Download as PDF
         </button>
@@ -69,7 +70,11 @@ const CV: React.FC = () => {
         <header className="cv-header">
           <div className="header-content">
             <div className="profile-container">
-              <img src={profileImage} alt="Profile" className="profile-image" />
+              <img 
+                src={profileImage} 
+                alt="Aruna Shantha - IT Executive and Software Engineer professional headshot" 
+                className="profile-image" 
+              />
             </div>
             <h1 className="name">{resumeData.personalInfo.name}</h1>
             <h2 className="title">{resumeData.personalInfo.title}</h2>
@@ -163,9 +168,17 @@ const CV: React.FC = () => {
                   <div className="cert-image-container">
                     <img 
                       src={edu.image} 
-                      alt={`${edu.degree} certificate`}
+                      alt={`Certificate for ${edu.degree} from ${edu.institution}`}
                       className="cert-image"
                       onClick={() => setSelectedCertImage(edu.image!)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          setSelectedCertImage(edu.image!);
+                        }
+                      }}
                     />
                     <div className="cert-overlay">
                       <FaEye className="view-icon" />
@@ -198,9 +211,17 @@ const CV: React.FC = () => {
                     <div className="cert-image-container">
                       <img 
                         src={cert.image} 
-                        alt={`${cert.name} certificate`}
+                        alt={`${cert.name} certification from ${cert.issuer} issued on ${cert.date}`}
                         className="cert-image"
                         onClick={() => setSelectedCertImage(cert.image!)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            setSelectedCertImage(cert.image!);
+                          }
+                        }}
                       />
                       <div className="cert-overlay">
                         <FaEye className="view-icon" />
@@ -252,12 +273,21 @@ const CV: React.FC = () => {
                   <div className="project-image-container">
                     <img 
                       src={project.image} 
-                      alt={`${project.title} screenshot`}
+                      alt={`Screenshot of ${project.title} - ${project.technologies} project showing key features and user interface`}
                       className="project-image"
                       onClick={() => setSelectedProjectImage(project.image!)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          setSelectedProjectImage(project.image!);
+                        }
+                      }}
                     />
                     <div className="image-overlay">
                       <FaEye className="view-icon" />
+                      <span className="overlay-text">Click to view full size</span>
                     </div>
                   </div>
                 )}
@@ -278,7 +308,7 @@ const CV: React.FC = () => {
             >
               ×
             </button>
-            <img src={selectedProjectImage} alt="Project screenshot" className="modal-image" />
+            <img src={selectedProjectImage} alt="Project screenshot - Full size view" className="modal-image" />
           </div>
         </div>
       )}
@@ -293,7 +323,7 @@ const CV: React.FC = () => {
             >
               ×
             </button>
-            <img src={selectedCertImage} alt="Certificate" className="modal-image" />
+            <img src={selectedCertImage} alt="Professional certificate - Full size view" className="modal-image" />
           </div>
         </div>
       )}
