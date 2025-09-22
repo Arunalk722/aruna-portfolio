@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-/* Loading Animation */
+
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -42,12 +42,12 @@
   }
 }
 
-/* Smooth scrolling */
+
 html {
   scroll-behavior: smooth;
 }
 
-/* Focus styles for accessibility */
+
 *:focus {
   outline: 2px solid #ff8a00;
   outline-offset: 2px;
@@ -693,7 +693,7 @@ html {
   }
 }
 
-/* Image Modal */
+
 .image-modal {
   position: fixed;
   top: 0;
@@ -772,7 +772,7 @@ html {
   object-fit: contain;
 }
 
-/* Certificate Styles */
+
 .cert-header {
   display: flex;
   justify-content: space-between;
@@ -897,7 +897,7 @@ html {
   opacity: 1;
 }
 
-/* Certificate Animation */
+
 @keyframes certificateFloat {
   0%, 100% {
     transform: translateY(0px);
@@ -923,7 +923,7 @@ html {
   animation-delay: 3s;
 }
 
-/* Dark Mode Styles */
+
 .cv-container.dark-mode {
   background: linear-gradient(135deg, #0f0f23, #1a1a2e);
 }
@@ -1011,7 +1011,7 @@ html {
   border-left-color: #28a745;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .cv-container {
     padding: 15px;
